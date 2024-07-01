@@ -1,25 +1,27 @@
 <?php
-include 'conexion.php';
-$nombre = $_POST['nombre'];
-$apellido = $_POST['apellido'];
-$cedula = $_POST['cedula'];
-$celular = $_POST['celular'];
-$correo = $_POST['correo'];
-$usuario = $_POST['usuario'];
-$contraseña = password_hash($_POST['contraseña'], PASSWORD_DEFAULT); // Encriptar la contraseña antes de almacenarla
-$tipo = $_POST['tipo'];
-$licencia = $_POST['licencia'];
+class Usuario {
+    private $conn;
 
-// Preparar y ejecutar la consulta
-$sql = "INSERT INTO usuario (nombre, apellido, cedula, celular, correo, usuario, contraseña, tipo, licencia) 
-VALUES ('$nombre', '$apellido', '$cedula', '$celular', '$correo', '$usuario', '$contraseña', '$tipo', '$licencia')";
+    public function __construct($db) {
+        $this->conn = $db;
+    }
 
-if ($conn->query($sql) === TRUE) {
-    echo "Nuevo registro creado con éxito";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    public function insertarUsuario($nombre, $apellido, $cedula, $celular, $correo, $usuario, $contraseña, $tipo, $licencia) {
+        $stmt = $this->conn->prepare("INSERT INTO usuario (nombre, apellido, cedula, celular, correo, usuario, contraseña, tipo, licencia) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        if ($stmt) {
+            $stmt->bind_param("sssssssss", $nombre, $apellido, $cedula, $celular, $correo, $usuario, $contraseña, $tipo, $licencia);
+            
+            if ($stmt->execute()) {
+                echo "Nuevo registro creado con éxito";
+            } else {
+                echo "Error al ejecutar la consulta: " . $stmt->error;
+            }
+            
+            $stmt->close();
+        } else {
+            echo "Error al preparar la consulta: " . $this->conn->error;
+        }
+    }
 }
-
-$conn->close();
 ?>
 

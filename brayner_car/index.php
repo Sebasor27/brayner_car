@@ -30,11 +30,11 @@
 
     <script>
         function login() {
-            window.location.href = 'login.html';  // Aquí puedes poner la ruta a tu página de login
+            window.location.href = 'login.html';  
         }
 
         function register() {
-            window.location.href = 'register.html';  // Aquí puedes poner la ruta a tu página de registro
+            window.location.href = 'register.html';  
         }
     </script>
 </body>

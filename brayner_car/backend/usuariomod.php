@@ -18,10 +18,8 @@ $contraseña = password_hash($_POST['contraseña'], PASSWORD_DEFAULT); // Encrip
 $tipo = $_POST['tipo'];
 $licencia = $_POST['licencia'];
 
-// Crear instancia de la clase Usuario y ejecutar la inserción
 $usuarioObj = new Usuario($conn);
 $usuarioObj->insertarUsuario($nombre, $apellido, $cedula, $celular, $correo, $usuario, $contraseña, $tipo, $licencia);
 
-// Cerrar la conexión
 $conexion->closeConnection();
 ?>

@@ -10,360 +10,118 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="/brayner_car/css/style.css"/>
-    <style>
-        .avala-form {
-            margin-top: -50px;
-            z-index: 2;
-            position: relative;
-        }
-
-        @media screen and (max-width: 575px) {
-            .avala-form {
-                margin-top: 0px;
-                padding: 0 35px;
-            }
+    <link rel="stylesheet" href="/brayner_car/css/style.css" />
+     <style>
+       .pop:hover{
+         border-top-color: var(--teal) !important;
+         transform: scale(1.03);
+         transition: all 0.3s;
+               
         }
     </style>
 </head>
 
 <body class="bg-ligth">
 
-      <?php require('../inc/header.php'); ?>
+    <?php require('../inc/header.php'); ?>
 
-    <!-- Contenedor de imagenes -->
-    <div class="container-fluid px-lg-4 mt-4">
-        <div class="swiper swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="images/camion.jpg" class="w-100 d-block" />
-                </div>
-                <div class="swiper-slide">
-                    <img src="images/toyota.jpg" class="w-100 d-block" />
-                </div>
-                <div class="swiper-slide">
-                    <img src="images/cedan.jpg" class="w-100 d-block" />
-                </div>
-                <div class="swiper-slide">
-                    <img src="images/COLOR-BLANCO.jpg" class="w-100 d-block" />
-                </div>
-            </div>
-        </div>
+    <div class="my-5 ox-4">
+        <h2 class="fw-bold h-font text-center">NUESTROS SERVICIOS</h2>
+        <div class="h-line bg-dark"></div>
+        <p class="text-center mt-3">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Iusto molestias doloribus dolorem ratione neque non, laborum sunt rem,
+            ad nisi laboriosam harum hic! Nisi, architecto? <br> At voluptate quasi rerum nostrum.
+        </p>
     </div>
-    <!-- Carros disponibles -->
-    <div class="container avala-form">
-        <div class="row">
-            <div class="col-lg-12 bg-white shadow p-4 rounded">
-                <h5 class="mb-5">Ver disponibilidad del auto</h5>
-                <form>
-                    <div class="row align-items-end">
-                        <div class="col-lg-3 mb-3">
-                            <label class="form-label font-weigth: 500">Alquilar</label>
-                            <input type="date" class="form-control shadow-none">
-                        </div>
-                        <div class="col-lg-3 mb-3">
-                            <label class="form-label font-weigth: 500">Fecha de retorno</label>
-                            <input type="date" class="form-control shadow-none">
-                        </div>
-                        <div class="col-lg-3 mb-3">
-                            <label class="form-label font-weigth: 500">Tipo de carro</label>
-                            <select class="form-select shadow-none">
-                                <option selected>Selecciona el carro</option>
-                                <option value="1">Auto</option>
-                                <option value="2">Camioneta</option>
-                                <option value="3">Furgoneta</option>
-                                <option value="3">Camion</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-2 mb-3">
-                            <label class="form-label font-weigth: 500">Personas</label>
-                            <select class="form-select shadow-none">
-                                <option selected>Para cuantas personas</option>
-                                <option value="1">Una</option>
-                                <option value="2">Cuatro</option>
-                                <option value="3">Seis</option>
-                                <option value="3">Doce</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-1 mb-lg-3 mt-2">
-                            <button type="submit" class="btn text-white shadow-none custom-bg">Enviar</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- Nuestros autos -->
-    <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">Nuestros Autos</h2>
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-6 my-3">
-                <div class="card border-0 shadow" style="max-width: 350px; margin: auto;">
-                    <img src="images/hyunday creta.jpg" class="card-img-top">
-                    
-                    <div class="card-body">
-                        <h5>hyundai Creta</h5>
-                        <h6 class="mb-4">15$ el dia</h6>
-                        <div class="features mb-4">
-                            <h6>Caracteristicas</h6>
-                            <span class="badge bg-light text-dark text-wrap">
-                              placa abc-323
-                        </span>
-                        <span class="badge bg-light text-dark text-wrap">
-                              Capacidad 5 personas
-                        </span>
-                        <span class="badge bg-light text-dark text-wrap">
-                              color gris
-                        </span>
-                        </div>
-                        <div class="d-flex justify-content-evenly mb-2">
-                           
-                        <a href="#" class="btn btn-sm text-white custom-bg shadow-none">Rentar</a>
-                        <a href="#" class="btn btn-sm btn-outline-dark shadow-none">Mas detalles</a>
-                        </div>
+            <div class="col-lg-4 col-md-6 mb-5 px-4">
+                <div class="bg-white rounded shadow p-4 border-top border-4 border-dark pop">
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="images/svg/car-front-fill.svg" width="40px">
+                        <h5 class="m-0 ms-3">Servicio de rentas</h5>
                     </div>
-                    
+
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta, nisi consectetur eligendi
+                        reiciendis voluptatem omnis sequi recusandae rerum necessitatibus quis illo alias quod quia quisquam, sapiente commodi quaerat numquam nihil.
+                    </p>
+
                 </div>
-               
             </div>
-            <div class="col-lg-4 col-md-6 my-3">
-                <div class="card border-0 shadow" style="max-width: 350px; margin: auto;">
-                    <img src="images/toyota.jpg" class="card-img-top">
-                    
-                    <div class="card-body">
-                        <h5>hyundai Creta</h5>
-                        <h6 class="mb-4">15$ el dia</h6>
-                        <div class="features mb-4">
-                            <h6>Caracteristicas</h6>
-                            <span class="badge bg-light text-dark text-wrap">
-                              placa abc-323
-                        </span>
-                        <span class="badge bg-light text-dark text-wrap">
-                              Capacidad 5 personas
-                        </span>
-                        <span class="badge bg-light text-dark text-wrap">
-                              color gris
-                        </span>
-                        </div>
-                        <div class="d-flex justify-content-evenly mb-2">
-                           
-                        <a href="#" class="btn btn-sm text-white custom-bg shadow-none">Rentar</a>
-                        <a href="#" class="btn btn-sm btn-outline-dark shadow-none">Mas detalles</a>
-                        </div>
+            <div class="col-lg-4 col-md-6 mb-5 px-4">
+                <div class="bg-white rounded shadow p-4 border-top border-4 border-dark pop">
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="images/svg/car-front-fill.svg" width="40px">
+                        <h5 class="m-0 ms-3">Servicio de rentas</h5>
                     </div>
-                    
+
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta, nisi consectetur eligendi
+                        reiciendis voluptatem omnis sequi recusandae rerum necessitatibus quis illo alias quod quia quisquam, sapiente commodi quaerat numquam nihil.
+                    </p>
+
                 </div>
-               
             </div>
-            <div class="col-lg-4 col-md-6 my-3">
-                <div class="card border-0 shadow" style="max-width: 350px; margin: auto;">
-                    <img src="images/hyunday creta.jpg" class="card-img-top">
-                    
-                    <div class="card-body">
-                        <h5>hyundai Creta</h5>
-                        <h6 class="mb-4">15$ el dia</h6>
-                        <div class="features mb-4">
-                            <h6>Caracteristicas</h6>
-                            <span class="badge bg-light text-dark text-wrap">
-                              placa abc-323
-                        </span>
-                        <span class="badge bg-light text-dark text-wrap">
-                              Capacidad 5 personas
-                        </span>
-                        <span class="badge bg-light text-dark text-wrap">
-                              color gris
-                        </span>
-                        </div>
-                        <div class="d-flex justify-content-evenly mb-2">
-                           
-                        <a href="#" class="btn btn-sm text-white custom-bg shadow-none">Rentar</a>
-                        <a href="#" class="btn btn-sm btn-outline-dark shadow-none">Mas detalles</a>
-                        </div>
+            <div class="col-lg-4 col-md-6 mb-5 px-4">
+                <div class="bg-white rounded shadow p-4 border-top border-4 border-dark pop">
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="images/svg/car-front-fill.svg" width="40px">
+                        <h5 class="m-0 ms-3">Servicio de rentas</h5>
                     </div>
-                    
+
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta, nisi consectetur eligendi
+                        reiciendis voluptatem omnis sequi recusandae rerum necessitatibus quis illo alias quod quia quisquam, sapiente commodi quaerat numquam nihil.
+                    </p>
+
                 </div>
-               
             </div>
-        </div>
-        <div class="col-lg-12 text-center mt-5">
-            <a href="#" class="btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none"> Mas Carros >>></a>
-        </div>
-    </div>
+            <div class="col-lg-4 col-md-6 mb-5 px-4">
+                <div class="bg-white rounded shadow p-4 border-top border-4 border-dark pop">
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="images/svg/car-front-fill.svg" width="40px">
+                        <h5 class="m-0 ms-3">Servicio de rentas</h5>
+                    </div>
 
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta, nisi consectetur eligendi
+                        reiciendis voluptatem omnis sequi recusandae rerum necessitatibus quis illo alias quod quia quisquam, sapiente commodi quaerat numquam nihil.
+                    </p>
 
-    <!-- Nuestros servicios -->
-    <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">Nuestros Servicios</h2>
-    <div class="container">
-        <div class="row justify-content-evenly">
-            <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
-                   <img src="images/svg/car-front-fill.svg" width="80px">
-                   <h5 mt-3>Renta de autos</h5>
+                </div>
             </div>
-            <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
-                   <img src="images/svg/box2.svg" width="80px">
-                   <h5 mt-3>Envio de paquetes</h5>
-            </div>
-            <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
-                   <img src="images/svg/radar.svg" width="80px">
-                   <h5 mt-3>Control por radar</h5>
-            </div>
-            <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
-                   <img src="images/svg/thermometer-snow.svg" width="80px">
-                   <h5 mt-3>Climatizado</h5>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Testimonios -->
-    <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">Testimonios</h2>
-    <div class="container">
-  <div class="swiper swiper-test">
-    <div class="swiper-wrapper">
+            <div class="col-lg-4 col-md-6 mb-5 px-4">
+                <div class="bg-white rounded shadow p-4 border-top border-4 border-dark pop">
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="images/svg/car-front-fill.svg" width="40px">
+                        <h5 class="m-0 ms-3">Servicio de rentas</h5>
+                    </div>
 
-      <div class="swiper-slide bg-white mb-3">
-       <div class="profile d-flex align-items-center p-4">
-        <img src="images/svg/star-fill.svg" widt="30px">
-        <h6 class="m-0 ms-2">Usuario cualquiera</h6>
-       </div>
-       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-         Dolorum quae error sint incidunt ab inventore, culpa accusantium dolorem, 
-         fugiat sunt beatae voluptates sequi et illo veniam, 
-         enim autem officia harum?
-        </p>
-        <div class="rating">
-        <i class="bi bi-star-fill"></i>
-        <i class="bi bi-star-fill"></i>
-        <i class="bi bi-star-fill"></i>
-        <i class="bi bi-star-fill"></i>
-        </div>
-      </div>
-      <div class="swiper-slide bg-white mb-3">
-       <div class="profile d-flex align-items-center mb-3">
-        <img src="images/svg/star-fill.svg" widt="30px">
-        <h6 class="m-0 ms-2">Usuario cualquiera</h6>
-       </div>
-       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-         Dolorum quae error sint incidunt ab inventore, culpa accusantium dolorem, 
-         fugiat sunt beatae voluptates sequi et illo veniam, 
-         enim autem officia harum?
-        </p>
-        <div class="rating">
-        <i class="bi bi-star-fill"></i>
-        <i class="bi bi-star-fill"></i>
-        <i class="bi bi-star-fill"></i>
-        <i class="bi bi-star-fill"></i>
-        </div>
-      </div>
-      <div class="swiper-slide bg-white mb-3">
-       <div class="profile d-flex align-items-center p-4">
-        <img src="images/svg/star-fill.svg" widt="30px">
-        <h6 class="m-0 ms-2">Usuario cualquiera</h6>
-       </div>
-       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-         Dolorum quae error sint incidunt ab inventore, culpa accusantium dolorem, 
-         fugiat sunt beatae voluptates sequi et illo veniam, 
-         enim autem officia harum?
-        </p>
-        <div class="rating">
-        <i class="bi bi-star-fill"></i>
-        <i class="bi bi-star-fill"></i>
-        <i class="bi bi-star-fill"></i>
-        <i class="bi bi-star-fill"></i>
-        </div>
-      </div>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta, nisi consectetur eligendi
+                        reiciendis voluptatem omnis sequi recusandae rerum necessitatibus quis illo alias quod quia quisquam, sapiente commodi quaerat numquam nihil.
+                    </p>
 
-    </div>
-    <div class="swiper-pagination"></div>
-  </div>
-    </div>
-
-   <!-- acerca de nosotros -->
-   <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">Acerca de nosotros</h2>
-   <div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-md-8 p-4 mb-lg-0 mb-3 bg-white rounded">
-        <iframe class="w-100" height="320" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d997.4431667061135!2d-79.1723444718781!3d-0.27409342152986277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sec!4v1720018559601!5m2!1ses!2sec"  loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-        <div class="col-lg-4 col-md-4">
-            <div class="bg-white p-4 rounded mb-4">
-                <h5>Llamanos</h5>
-                <a href="tel: +593 989645329" class="d-inline-block mb-2 text-decration-none text-dark">
-                <i class="bi bi-telephone-inbound"></i> +593 989645329
-                </a>
-                <br>
-                <a href="tel: +593 989645329" class="d-inline-block text-decration-none text-dark">
-                <i class="bi bi-telephone-inbound"></i> +593 989645329
-                </a>
-                
+                </div>
             </div>
-            <div class="bg-white p-4 rounded mb-4">
-                <h5>Facebook</h5>
-                <a href=""class="d-inline-block mb-3">
-                 <span class="badge bg-ligth text-dark fs-6 p-2">
-                 <i class="bi bi-facebook me-1"></i> Red Social
-                 </span>
-                </a>
-                <br>
-                <a href="tel: +593 989645329" class="d-inline-block text-decration-none text-dark">
-                <i class="bi bi-car-front"></i> Brayner_Car
-                </a>
-                
+            <div class="col-lg-4 col-md-6 mb-5 px-4">
+                <div class="bg-white rounded shadow p-4 border-top border-4 border-dark pop">
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="images/svg/car-front-fill.svg" width="40px">
+                        <h5 class="m-0 ms-3">Servicio de rentas</h5>
+                    </div>
+
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta, nisi consectetur eligendi
+                        reiciendis voluptatem omnis sequi recusandae rerum necessitatibus quis illo alias quod quia quisquam, sapiente commodi quaerat numquam nihil.
+                    </p>
+
+                </div>
             </div>
         </div>
     </div>
-   </div>
-
-
-  <?php require( '../inc/footer.php' ); ?>
+    <?php require('../inc/footer.php'); ?>
 
 
     <br><br><br>
     <br><br><br>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script>
-        var swiper = new Swiper(".swiper-container", {
-            spaceBetween: 30,
-            effect: "fade",
-            loop: true,
-            autoplay: {
-                delay: 3500,
-                disableOnInteraction: false,
-            }
-        });
-        var swiper = new Swiper(".swiper-test", {
-      effect: "coverflow",
-      grabCursor: true,
-      centeredSlides: true,
-      slidesPerView: "auto",
-      slidesPerView: "3",
-      loop: true,
-      coverflowEffect: {
-        rotate: 50,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: false,
-      },
-      pagination: {
-        el: ".swiper-pagination",
-      },
-      breakpoints: {
-        320: {
-            slidesPerView: 1,
-      },
-      640: {
-            slidesPerView: 1,
-      },
-      768: {
-            slidesPerView: 2,
-      },
-      1024: {
-            slidesPerView: 3,
-      }
-      }
-    });
-    </script>
+
 </body>
 
 </html>

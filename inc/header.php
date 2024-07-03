@@ -13,13 +13,13 @@
                         <a class="nav-link me-2" href="#">CARROS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-2" href="#">INFORMACION</a>
+                        <a class="nav-link me-2" href="servicios.php">INFORMACION</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link me-2" href="#">CONTACTO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-2" href="#">ACERCA DE NOSOTROS</a>
+                        <a class="nav-link me-2" href="acercanos.php">ACERCA DE NOSOTROS</a>
                     </li>
 
                 </ul>

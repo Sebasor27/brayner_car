@@ -340,13 +340,157 @@
     <!-- Nuestros servicios -->
     <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">Nuestros Servicios</h2>
     <div class="container">
-        <div class="row">
-            <div class="col-lg-2 col-md-2 text-center ">
+        <div class="row justify-content-evenly">
+            <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
                    <img src="images/svg/car-front-fill.svg" width="80px">
                    <h5 mt-3>Renta de autos</h5>
             </div>
+            <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
+                   <img src="images/svg/box2.svg" width="80px">
+                   <h5 mt-3>Envio de paquetes</h5>
+            </div>
+            <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
+                   <img src="images/svg/radar.svg" width="80px">
+                   <h5 mt-3>Control por radar</h5>
+            </div>
+            <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
+                   <img src="images/svg/thermometer-snow.svg" width="80px">
+                   <h5 mt-3>Climatizado</h5>
+            </div>
         </div>
     </div>
+    
+    <!-- Testimonios -->
+    <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">Testimonios</h2>
+    <div class="container">
+  <div class="swiper swiper-test">
+    <div class="swiper-wrapper">
+
+      <div class="swiper-slide bg-white mb-3">
+       <div class="profile d-flex align-items-center p-4">
+        <img src="images/svg/star-fill.svg" widt="30px">
+        <h6 class="m-0 ms-2">Usuario cualquiera</h6>
+       </div>
+       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+         Dolorum quae error sint incidunt ab inventore, culpa accusantium dolorem, 
+         fugiat sunt beatae voluptates sequi et illo veniam, 
+         enim autem officia harum?
+        </p>
+        <div class="rating">
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        </div>
+      </div>
+      <div class="swiper-slide bg-white mb-3">
+       <div class="profile d-flex align-items-center mb-3">
+        <img src="images/svg/star-fill.svg" widt="30px">
+        <h6 class="m-0 ms-2">Usuario cualquiera</h6>
+       </div>
+       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+         Dolorum quae error sint incidunt ab inventore, culpa accusantium dolorem, 
+         fugiat sunt beatae voluptates sequi et illo veniam, 
+         enim autem officia harum?
+        </p>
+        <div class="rating">
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        </div>
+      </div>
+      <div class="swiper-slide bg-white mb-3">
+       <div class="profile d-flex align-items-center p-4">
+        <img src="images/svg/star-fill.svg" widt="30px">
+        <h6 class="m-0 ms-2">Usuario cualquiera</h6>
+       </div>
+       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+         Dolorum quae error sint incidunt ab inventore, culpa accusantium dolorem, 
+         fugiat sunt beatae voluptates sequi et illo veniam, 
+         enim autem officia harum?
+        </p>
+        <div class="rating">
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        </div>
+      </div>
+
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+    </div>
+
+   <!-- acerca de nosotros -->
+   <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">Acerca de nosotros</h2>
+   <div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-8 p-4 mb-lg-0 mb-3 bg-white rounded">
+        <iframe class="w-100" height="320" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d997.4431667061135!2d-79.1723444718781!3d-0.27409342152986277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sec!4v1720018559601!5m2!1ses!2sec"  loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="col-lg-4 col-md-4">
+            <div class="bg-white p-4 rounded mb-4">
+                <h5>Llamanos</h5>
+                <a href="tel: +593 989645329" class="d-inline-block mb-2 text-decration-none text-dark">
+                <i class="bi bi-telephone-inbound"></i> +593 989645329
+                </a>
+                <br>
+                <a href="tel: +593 989645329" class="d-inline-block text-decration-none text-dark">
+                <i class="bi bi-telephone-inbound"></i> +593 989645329
+                </a>
+                
+            </div>
+            <div class="bg-white p-4 rounded mb-4">
+                <h5>Facebook</h5>
+                <a href=""class="d-inline-block mb-3">
+                 <span class="badge bg-ligth text-dark fs-6 p-2">
+                 <i class="bi bi-facebook me-1"></i> Red Social
+                 </span>
+                </a>
+                <br>
+                <a href="tel: +593 989645329" class="d-inline-block text-decration-none text-dark">
+                <i class="bi bi-car-front"></i> Brayner_Car
+                </a>
+                
+            </div>
+        </div>
+    </div>
+   </div>
+
+   <div class="container-fluid bg-white mt-5">
+    <div class="row">
+        <div class="col-lg-4 p-4">
+           <h3 class="h-font fw-bold fs-3 mb-2">Brayner Car</h3>
+           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident inventore, fugiat tempora corporis sapiente vel facilis ducimus officia quasi, 
+            voluptatum atque dolor 
+            iure unde qui doloribus delectus neque accusantium mollitia?</p>
+        </div>
+        <div class="col-lg-4 p-4">
+           <h5 class="mb-3">Links</h5>
+           <a href="#" class="d-inline-block mb-2 text-dark text-decoration-none">Pagina Principal</a><br>
+           <a href="#" class="d-inline-block mb-2 text-dark text-decoration-none">Carros</a><br>
+           <a href="#" class="d-inline-block mb-2 text-dark text-decoration-none">Servicios</a><br>
+           <a href="#" class="d-inline-block mb-2 text-dark text-decoration-none">Conatctenos</a><br>
+           <a href="#" class="d-inline-block mb-2 text-dark text-decoration-none">Acerca de nosotros</a>
+
+        </div>
+        <div class="col-lg-4 p-4">
+            <h5 class="mb-3">Siguenos en Facebook</h5>
+            <a href=""class="d-inline-block mb-3">
+                 <span class="badge bg-ligth text-dark fs-6 p-2">
+                 <i class="bi bi-facebook me-1"></i> Red Social
+                 </span>
+                </a>
+                <br>
+                <a href="tel: +593 989645329" class="d-inline-block text-decration-none text-dark mb-2">
+                <i class="bi bi-car-front"></i> Brayner_Car
+            </a>
+        </div>
+
+    </div>
+   </div>
 
     <br><br><br>
     <br><br><br>
@@ -362,6 +506,38 @@
                 disableOnInteraction: false,
             }
         });
+        var swiper = new Swiper(".swiper-test", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      slidesPerView: "3",
+      loop: true,
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+      },
+      breakpoints: {
+        320: {
+            slidesPerView: 1,
+      },
+      640: {
+            slidesPerView: 1,
+      },
+      768: {
+            slidesPerView: 2,
+      },
+      1024: {
+            slidesPerView: 3,
+      }
+      }
+    });
     </script>
 </body>
 

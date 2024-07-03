@@ -118,7 +118,7 @@
                         </div>
                         <div class="d-flex justify-content-evenly mb-2">
                            
-                        <a href="#" class="btn btn-sm text-white custom-bg shadow-none">Rentar</a>
+                        <a href="#" class="btn btn-sm custom-bg shadow-none mb-2" >Rentar</a>
                         <a href="#" class="btn btn-sm btn-outline-dark shadow-none">Mas detalles</a>
                         </div>
                     </div>
@@ -147,7 +147,7 @@
                         </div>
                         <div class="d-flex justify-content-evenly mb-2">
                            
-                        <a href="#" class="btn btn-sm text-white custom-bg shadow-none">Rentar</a>
+                        <a href="#" class="btn btn-sm custom-bg shadow-none mb-2" >Rentar</a>
                         <a href="#" class="btn btn-sm btn-outline-dark shadow-none">Mas detalles</a>
                         </div>
                     </div>
@@ -176,7 +176,7 @@
                         </div>
                         <div class="d-flex justify-content-evenly mb-2">
                            
-                        <a href="#" class="btn btn-sm text-white custom-bg shadow-none">Rentar</a>
+                        <a href="#" class="btn btn-sm custom-bg shadow-none mb-2" >Rentar</a>
                         <a href="#" class="btn btn-sm btn-outline-dark shadow-none">Mas detalles</a>
                         </div>
                     </div>

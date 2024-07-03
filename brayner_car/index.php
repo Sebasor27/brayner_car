@@ -14,24 +14,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
+    <link rel="stylesheet" href="/brayner_car/css/style.css"/>
     <style>
-        * {
-            font-family: "Poppins", sans-serif;
-        }
-
-        .h-font {
-            font-family: "Merienda", cursive;
-        }
-
-        .custom-bg {
-            background-color: #2ec1ac;
-        }
-
-        .custom-bg:hover {
-            background-color: #279eBc;
-        }
-
         .avala-form {
             margin-top: -50px;
             z-index: 2;
@@ -278,8 +262,71 @@
                               color gris
                         </span>
                         </div>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <div class="d-flex justify-content-evenly mb-2">
+                           
+                        <a href="#" class="btn btn-sm text-white custom-bg shadow-none">Rentar</a>
+                        <a href="#" class="btn btn-sm btn-outline-dark shadow-none">Mas detalles</a>
+                        </div>
                     </div>
+                    
+                </div>
+               
+            </div>
+            <div class="col-lg-4 col-md-6 my-3">
+                <div class="card border-0 shadow" style="max-width: 350px; margin: auto;">
+                    <img src="images/toyota.jpg" class="card-img-top">
+                    
+                    <div class="card-body">
+                        <h5>hyundai Creta</h5>
+                        <h6 class="mb-4">15$ el dia</h6>
+                        <div class="features mb-4">
+                            <h6>Caracteristicas</h6>
+                            <span class="badge bg-light text-dark text-wrap">
+                              placa abc-323
+                        </span>
+                        <span class="badge bg-light text-dark text-wrap">
+                              Capacidad 5 personas
+                        </span>
+                        <span class="badge bg-light text-dark text-wrap">
+                              color gris
+                        </span>
+                        </div>
+                        <div class="d-flex justify-content-evenly mb-2">
+                           
+                        <a href="#" class="btn btn-sm text-white custom-bg shadow-none">Rentar</a>
+                        <a href="#" class="btn btn-sm btn-outline-dark shadow-none">Mas detalles</a>
+                        </div>
+                    </div>
+                    
+                </div>
+               
+            </div>
+            <div class="col-lg-4 col-md-6 my-3">
+                <div class="card border-0 shadow" style="max-width: 350px; margin: auto;">
+                    <img src="images/hyunday creta.jpg" class="card-img-top">
+                    
+                    <div class="card-body">
+                        <h5>hyundai Creta</h5>
+                        <h6 class="mb-4">15$ el dia</h6>
+                        <div class="features mb-4">
+                            <h6>Caracteristicas</h6>
+                            <span class="badge bg-light text-dark text-wrap">
+                              placa abc-323
+                        </span>
+                        <span class="badge bg-light text-dark text-wrap">
+                              Capacidad 5 personas
+                        </span>
+                        <span class="badge bg-light text-dark text-wrap">
+                              color gris
+                        </span>
+                        </div>
+                        <div class="d-flex justify-content-evenly mb-2">
+                           
+                        <a href="#" class="btn btn-sm text-white custom-bg shadow-none">Rentar</a>
+                        <a href="#" class="btn btn-sm btn-outline-dark shadow-none">Mas detalles</a>
+                        </div>
+                    </div>
+                    
                 </div>
                
             </div>
@@ -288,6 +335,19 @@
             <a href="#" class="btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none"> Mas Carros >>></a>
         </div>
     </div>
+
+
+    <!-- Nuestros servicios -->
+    <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">Nuestros Servicios</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-md-2 text-center ">
+                   <img src="images/svg/car-front-fill.svg" width="80px">
+                   <h5 mt-3>Renta de autos</h5>
+            </div>
+        </div>
+    </div>
+
     <br><br><br>
     <br><br><br>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

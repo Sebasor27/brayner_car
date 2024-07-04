@@ -2,6 +2,10 @@
  require("../admin/inc/essentials.php");
  require("../admin/inc/db_config.php");
 
+ session_start();
+    if((isset($_SESSION['adminLogin']) && $_SESSION['adminLogin']==true)){
+      redirect("dashboard.php");
+    }
 ?>
 
 
@@ -52,9 +56,12 @@
              
              $res = select($query,$values,"ss");
              if($res->num_rows==1){
-                echo"tengo usuario";
+                $row = mysqli_fetch_assoc($res);
+                $_SESSION['adminLogin'] = true;
+                $_SESSION['adminId'] = $row['sr_no'];
+                redirect('dashboard.php');
              }else{
-                
+                alert('error', 'login failed - credenciales invalidas!!');
              }
            }
            

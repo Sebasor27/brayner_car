@@ -41,4 +41,24 @@
         die("No se pudo ejecutar la sentencia");
     }
  }
+
+ function update($sql, $values, $datatypes)
+ {
+    $con = $GLOBALS['con'];
+    if($stmt = mysqli_prepare($con,$sql))
+    {
+        mysqli_stmt_bind_param($stmt,$datatypes,...$values);
+        if(mysqli_stmt_execute($stmt)){
+           $res = mysqli_stmt_affected_rows($stmt);
+           return $res;
+        }
+        else{
+            mysqli_stmt_close($stmt);
+            die("No se pudo ejecutar la sentencia insertar");
+        }
+        
+    }else{
+        die("No se pudo ejecutar la sentencia insertar");
+    }
+ }
 ?>

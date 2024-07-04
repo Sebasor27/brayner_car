@@ -25,3 +25,7 @@
    margin: 0 auto;
    height: 1.7px; 
 }
+#dashboard-menu{
+    position: fixed;
+    height: 100%;
+}

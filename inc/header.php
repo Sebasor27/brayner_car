@@ -16,7 +16,7 @@
                         <a class="nav-link me-2" href="servicios.php">INFORMACION</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-2" href="#">CONTACTO</a>
+                        <a class="nav-link me-2" href="contact.php">CONTACTO</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link me-2" href="acercanos.php">ACERCA DE NOSOTROS</a>

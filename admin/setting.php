@@ -26,8 +26,8 @@ adminLogin();
     <div class="row">
       <div class="col-lg-10 ms-auto p-4 overflow-hidden">
         <h3 class="mb-4">Configuracion</h3>
-        <!--Cinfiguraciones generales -->
 
+        <!--Configuraciones generales -->
         <div class="card border-0 shadow-sm mb-4">
           <div class="card-body">
             <div class="d-flex align-items-center justify-content-between mb-3">
@@ -43,10 +43,7 @@ adminLogin();
           </div>
         </div>
 
-
         <!--Cinfiguraciones generales modal-->
-
-
         <div class="modal fade" id="general-setting" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
           <div class="modal-dialog">
             <form id="general_s_form">
@@ -235,197 +232,59 @@ adminLogin();
     </div>
 
 
+    <!--Managment team section-->
+    <div class="card border-0 shadow-sm mb-4">
+      <div class="card-body">
+        <div class="d-flex align-items-center justify-content-between mb-3">
+          <h5 class="card-tittle m-0">Managment Team</h5>
+          <button type="button" class="btn btn-dark shadow-none btn-sm" data-bs-toggle="modal" data-bs-target="#team-s">
+            <i class="bi bi-plus-square"></i>Añadir
+          </button>
+        </div>
+        <div class="row" id="team-data">
+         
+           
+        </div>
+         
+      </div>
+    </div>
+
+    <!--Managment team modal-->
+    <div class="modal fade" id="team-s" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <form id="team_s_form">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Añadir miembro del team</h5>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label class="form-label fw-bold">Nombre</label>
+                <input type="text" name="member_name" id="member_name_inp" class="form-control shadow-none" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label fw-bold">Foto</label>
+                <input type="file" name="member_picture" id="member_picture_inp" accept=".jpg, .png, .webp, .jpeg" class="form-control shadow-none" required>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" onclick="member_name.value='', member_picture.value=''" class="btn text-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn custom-bg text-white">Enviar</button>
+            </div>
+        </form>
+
+      </div>
+    </div>
+
+
+
   </div>
   </div>
   </div>
 
 
   <?php require("../admin/inc/scripts.php"); ?>
-  <script>
-    let general_data, contact_data;
-
-    let general_s_form = document.getElementById('general_s_form');
-
-    let site_title_inp = document.getElementById('site_title_inp');
-    let site_about_inp = document.getElementById('site_about_inp');
-
-    let contacts_s_form = document.getElementById('contacts_s_form');
-
-    function get_general() {
-      let site_title = document.getElementById('site_title');
-      let site_about = document.getElementById('site_about');
-
-
-      let shutdown_toggle = document.getElementById('shutdown-toggle');
-
-      let xhr = new XMLHttpRequest();
-      xhr.open("POST", "ajax/settings_crud.php", true);
-
-      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-      xhr.onload = function() {
-        general_data = JSON.parse(this.responseText);
-        site_title.innerText = general_data.site_title;
-        site_about.innerText = general_data.site_about;
-
-        site_title_inp.value = general_data.site_title;
-        site_about_inp.value = general_data.site_about;
-
-        if (general_data.shutdown == 0) {
-          shutdown_toggle.checked = false;
-          shutdown_toggle.value = 0;
-        } else {
-          shutdown_toggle.checked = true;
-          shutdown_toggle.value = 1;
-        }
-      }
-
-
-      xhr.send("get_general");
-    }
-
-    general_s_form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      upd_general(site_title_inp.value, site_about_inp.value);
-
-    })
-
-    function upd_general(site_title_val, site_about_val) {
-
-      let xhr = new XMLHttpRequest();
-      xhr.open("POST", "ajax/settings_crud.php", true);
-
-      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-      xhr.onload = function() {
-
-        var myModal = document.getElementById('general-setting');
-        var modal = bootstrap.Modal.getInstance(myModal);
-        modal.hide();
-
-        if (this.responseText == 1) {
-          alert('success', 'cambios guardados!!');
-          get_general();
-        } else {
-          alert('error', 'cambios no se guardaron');
-        }
-      }
-
-
-      xhr.send("site_title=" + site_title_val + "&site_about=" + site_about_val + "&upd_general");
-    }
-
-    function upd_shutdown() {
-      let shutdown_toggle = document.getElementById('shutdown-toggle');
-      let val = shutdown_toggle.checked ? 1 : 0;
-
-      let xhr = new XMLHttpRequest();
-      xhr.open("POST", "ajax/settings_crud.php", true);
-      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-      xhr.onload = function() {
-        if (this.responseText == 1) {
-          if (val == 1) {
-            alert('success', 'El sitio ha sido cerrado');
-          } else {
-            alert('success', 'El sitio ha sido encendido');
-          }
-          get_general();
-        } else {
-          alert('error', 'No se pudo actualizar el estado');
-        }
-      };
-
-      xhr.send("upd_shutdown=" + val);
-    }
-
-    //Detalle contacto
-
-    function get_contacts() {
-      let contacts_p_id = ['address', 'gmap', 'pn1', 'pn2', 'email', 'fb', 'insta', 'tw']
-      let iframe = document.getElementById('iframe');
-
-      let xhr = new XMLHttpRequest();
-      xhr.open("POST", "ajax/settings_crud.php", true);
-
-      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-      xhr.onload = function() {
-        console.log(this.responseText); // Para ver qué está devolviendo el servidor
-        try {
-          contact_data = JSON.parse(this.responseText);
-          contact_data = Object.values(contact_data);
-
-          for (i = 0; i < contacts_p_id.length; i++) {
-            document.getElementById(contacts_p_id[i]).innerText = contact_data[i + 1];
-          }
-          iframe.src = contact_data[9];
-          contacts_inp(contact_data);
-
-
-        } catch (e) {
-          console.error("Error parsing JSON:", e);
-        }
-      }
-
-      xhr.send("get_contacts");
-    }
-
-    function contacts_inp(data) {
-      let contacts_inp_id = ['address_inp', 'gmap_inp', 'pn1_inp', 'pn2_inp', 'email_inp', 'fb_inp', 'insta_inp', 'tw_inp', 'iframe_inp'];
-
-      for (i = 0; i < contacts_inp_id.length; i++) {
-        document.getElementById(contacts_inp_id[i]).value = data[i + 1];
-
-      }
-
-    }
-
-    contacts_s_form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      upd_contacts();
-    });
-
-    function upd_contacts() {
-      let index = ['address', 'gmap', 'pn1', 'pn2', 'email', 'fb', 'insta', 'tw', 'iframe'];
-      let contacts_inp_id = ['address_inp', 'gmap_inp', 'pn1_inp', 'pn2_inp', 'email_inp', 'fb_inp', 'insta_inp', 'tw_inp', 'iframe_inp'];
-      let data_str = "";
-
-      for (let i = 0; i < index.length; i++) {
-        data_str += index[i] + "=" + document.getElementById(contacts_inp_id[i]).value + '&';
-      }
-      data_str += "upd_contacts";
-
-      let xhr = new XMLHttpRequest();
-      xhr.open("POST", "ajax/settings_crud.php", true);
-      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-      xhr.onload = function() {
-        console.log(this.responseText);
-        var myModal = document.getElementById('contacts-s');
-        if (myModal) {
-          var modal = bootstrap.Modal.getInstance(myModal);
-          modal.hide();
-        } else {
-          console.error('El modal no se encontró en el DOM.');
-        }
-
-        if (this.responseText == 1) {
-          alert('success', 'Cambios guardados');
-          get_contacts();
-        } else {
-          alert('error', 'No se pudo actualizar el estado');
-        }
-      }
-      xhr.send(data_str);
-    }
-
-
-    window.onload = function() {
-      get_general();
-      get_contacts();
-    }
-  </script>
+  <script src="../admin/scripts/settings.js"></script>
 
 </body>
 

@@ -30,3 +30,8 @@
     height: 100%;
     z-index: 11;
 }
+.custom-alert{
+    position: fixed;
+    top: 80px;
+    right: 25px;
+}

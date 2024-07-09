@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="/brayner_car/css/style.css" />
+    <link rel="stylesheet" href="../css/style.css"/>
    
 </head>
 
@@ -71,29 +71,46 @@
         </div>
         <div class="col-lg-6 col-md-6 px-4">
                 <div class="bg-white rounded shadow p-4 border-top border-4 border-dark pop">
-                   <form>
+                   <form method="POST">
                     <h5>Envia un mensaje</h5>
                    <div class="mb-3">
                             <label class="form-label" style="font-weight: 500;">Nombre</label>
-                            <input type="text" class="form-control shadow-none">
+                            <input name="name" required type="text" class="form-control shadow-none">
                         </div>
                         <div class="mb-3">
                             <label class="form-label" style="font-weight: 500;">CORREO</label>
-                            <input type="email" class="form-control shadow-none">
+                            <input name="email" required  type="email" class="form-control shadow-none">
                         </div>
                         <div class="mb-3">
                             <label class="form-label" style="font-weight: 500;">ASUNTO</label>
-                            <input type="text" class="form-control shadow-none">
+                            <input name="subject" required  type="text" class="form-control shadow-none">
                         </div>
                         <div class="mb-3">
                             <label class="form-label" style="font-weight: 500;">MENSAJE</label>
-                            <textarea class="form-control shadow-none" rows="5" style="resize: none;"></textarea>
+                            <textarea name="message" required  class="form-control shadow-none" rows="5" style="resize: none;"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-success custom-bg mt-3 shadow-none">ENVIAR</button>
+                        <button type="submit" name="send" class="btn btn-success custom-bg mt-3 shadow-none">ENVIAR</button>
                    </form>
                 </div>
             </div>
     </div>
+
+    <?php 
+     if(isset($_POST['send'])) {
+        $frm_data = filteration($_POST);
+        $q = "INSERT INTO `user_queries`(`name`, `email`, `subject`, `message`) VALUES (?,?,?,?)";
+        $values = [$frm_data['name'],$frm_data['email'],$frm_data['subject'],$frm_data['message']];
+     
+        $res = insert($q,$values,'ssss');
+        if ($res == 1) {
+            alert('success','Correo Enviado');
+        }else{
+            alert('error','Error al enviar el correo');
+        }
+      }    
+    
+    ?>
+
     <?php require('../inc/footer.php'); ?>
 
 

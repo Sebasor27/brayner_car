@@ -18,7 +18,7 @@
               <a class="nav-link" href="dashboard.php">Panel</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-success" href="#">Autos</a>
+              <a class="nav-link text-success" href="user_queries.php">Mensajes Usuarios</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-success" href="carousel.php">Imagenes</a>

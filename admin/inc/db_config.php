@@ -11,7 +11,8 @@
     die("No se pudo conectar".mysqli_connect_error());
    }
 
- function filteration($data)
+ 
+  function filteration($data)
  {
     foreach($data as $key => $value){
        $data[$key] = trim($value);

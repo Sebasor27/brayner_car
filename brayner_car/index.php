@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="/brayner_car/css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
     <style>
         .avala-form {
             margin-top: -50px;
@@ -35,18 +35,18 @@
     <div class="container-fluid px-lg-4 mt-4">
         <div class="swiper swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="images/camion.jpg" class="w-100 d-block" />
-                </div>
-                <div class="swiper-slide">
-                    <img src="images/toyota.jpg" class="w-100 d-block" />
-                </div>
-                <div class="swiper-slide">
-                    <img src="images/cedan.jpg" class="w-100 d-block" />
-                </div>
-                <div class="swiper-slide">
-                    <img src="images/COLOR-BLANCO.jpg" class="w-100 d-block" />
-                </div>
+                <?php
+                $res = selectALL('carousel');
+                while ($row = mysqli_fetch_assoc($res)) {
+                    $path = CAROUSEL_IMG_PATH;
+                    echo <<<data
+                       <div class="swiper-slide">
+                          <img src="$path$row[image]" class="w-100 d-block" />
+                       </div>
+                    data;
+                }
+
+                ?>
             </div>
         </div>
     </div>

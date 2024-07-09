@@ -21,7 +21,7 @@
               <a class="nav-link text-success" href="#">Autos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-success" href="#">Usuarios</a>
+              <a class="nav-link text-success" href="carousel.php">Imagenes</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-success" href="setting.php">Configuración</a>

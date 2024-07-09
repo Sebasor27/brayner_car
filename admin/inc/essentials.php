@@ -3,12 +3,14 @@
 
   define('SITE_URL','http://localhost:3000/brayner_car/');
   define('ABOUT_IMG_PATH',SITE_URL.'images/abouts/');
+  define('CAROUSEL_IMG_PATH',SITE_URL.'images/carousel/');
 
  
  //Proceso de subir informacion Backend
 
  define('UPLOAD_IMAGE_PATH',$_SERVER['DOCUMENT_ROOT'].'/brayner_car/images/');
  define('ABOUT_FOLDER','abouts/');
+ define('CAROUSEL_FOLDER','carousel/');
 
  function adminLogin(){
     session_start();

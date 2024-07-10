@@ -18,6 +18,9 @@
               <a class="nav-link" href="dashboard.php">Panel</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link text-success" href="features_facilities.php">Servicios y comodidades</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link text-success" href="user_queries.php">Mensajes Usuarios</a>
             </li>
             <li class="nav-item">

@@ -38,9 +38,14 @@ if (isset($_POST['rem_feature'])) {
   $frm_data = filteration($_POST);
   $values = [$frm_data['rem_feature']];
 
-  $q = "DELETE FROM `servicios` WHERE `id` = ?";
-  $res = delete($q, $values, 'i');
-  echo $res;
+  $check_q = select('SELECT * FROM `car_servicios` WHERE `servicios_id`=?',[$frm_data['rem_feature']],'i');
+  if (mysqli_num_rows($check_q) == 0) {
+    $q = "DELETE FROM `servicios` WHERE `id` = ?";
+    $res = delete($q, $values, 'i');
+    echo $res;
+  }else{
+    echo 'room_added';
+  }
 }
 
 if (isset($_POST['add_facility'])) {
@@ -89,6 +94,8 @@ if (isset($_POST['get_facilities'])) {
 if (isset($_POST['rem_facility'])) {
   $frm_data = filteration($_POST);
   $values = [$frm_data['rem_facility']];
+
+  
 
   $pre_q = "SELECT * FROM `facilities` WHERE `id` = ?";
   $res = select($pre_q, $values, 'i');

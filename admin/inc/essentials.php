@@ -5,13 +5,15 @@
   define('ABOUT_IMG_PATH',SITE_URL.'images/abouts/');
   define('CAROUSEL_IMG_PATH',SITE_URL.'images/carousel/');
   define('FEATURES_IMG_PATH',SITE_URL.'images/features/');
- 
+  define('ROOMS_IMG_PATH',SITE_URL.'images/cars/');
+
  //Proceso de subir informacion Backend
 
  define('UPLOAD_IMAGE_PATH',$_SERVER['DOCUMENT_ROOT'].'/brayner_car/images/');
  define('ABOUT_FOLDER','abouts/');
  define('CAROUSEL_FOLDER','carousel/');
  define('FEATURES_FOLDER','features/');
+ define('CARS_FOLDER','cars/');
 
  function adminLogin(){
     session_start();

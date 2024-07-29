@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="/brayner_car/css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
     <style>
         .box {
             border-top-color: var(--teal) !important;
@@ -28,9 +28,10 @@
 
     </div>
 
-    <div class="container mt-5">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-3 col-md-12 mb-lg-0 mb-4">
+
+            <div class="col-lg-3 col-md-12 mb-lg-0 mb-4 ps-4">
                 <nav class="navbar navbar-expand-lg navbar-light bg-white rounded shadow">
                     <div class="container-fluid flex-lg-column align-items-stretch">
                         <h4 class="mt-2">Filtros</h4>
@@ -78,138 +79,86 @@
             </div>
 
             <div class="col-lg-9 col-md-12 px-4">
-                <div class="card mb-4 border-0 shadow">
-                    <div class="row g-0 p-3 align-items-center">
-                        <div class="col-md-5 mb-lg-0 mb-md-0 mb-3">
-                            <img src="images/cedan.jpg" class="img-fluid rounded-start">
-                        </div>
-                        <div class="col-md-5 px-md-3 px-0">
 
-                            <div class="card-body">
-                                <h5>hyundai Creta</h5>
-                                <h6 class="mb-3">15$ el dia</h6>
+                <?php
+                $room_res = select("SELECT * FROM `cars` WHERE `status`= ? AND `removed`=?", [1, 0], 'ii');
+
+                while ($room_data = mysqli_fetch_assoc($room_res)) {
+                    // obtener servicios del carro
+                    $fea_q = mysqli_query($con, "SELECT f.name FROM `servicios` f 
+                              INNER JOIN `car_servicios` rfea ON f.id = rfea.servicios_id
+                              WHERE rfea.car_id = '$room_data[id]'");
+
+                    $features_data = "";
+                    while ($fea_row = mysqli_fetch_assoc($fea_q)) {
+                        $features_data .= "<span class='badge rounded-pill bg-light text-dark text-wrap'>
+                                                  $fea_row[name]
+                                               </span>";
+                    }
+                    // Obtener facilities del auto
+                    $fac_q = mysqli_query($con, "SELECT f.name FROM `facilities` f 
+                                                 INNER JOIN `cars_facilities` rfac ON f.id = rfac.facilities_id
+                                                 WHERE rfac.car_id = '$room_data[id]'");
+                    $facilities_data = "";
+                    while ($fac_row = mysqli_fetch_assoc($fac_q)) {
+                        $facilities_data .= "<span class='badge rounded-pill bg-light text-dark text-wrap'>
+                                                      $fac_row[name]
+                                                   </span>";
+                    }
+
+
+                    // Obtener la imagen activa
+                    $room_thumb = ROOMS_IMG_PATH . "thumbnail.jpg";
+                    $thumb_q = mysqli_query($con, "SELECT * FROM `car_image` 
+                                                   WHERE `car_id`='$room_data[id]' 
+                                                   AND `thumb`='1'");
+
+                    if (mysqli_num_rows($thumb_q) > 0) {
+                        $thumb_res = mysqli_fetch_assoc($thumb_q);
+                        $room_thumb = ROOMS_IMG_PATH . $thumb_res['image'];
+                    }
+
+                    // imprimir carta auto
+                    echo <<<data
+                         <div class="card mb-4 border-0 shadow">
+                             <div class="row g-0 p-3 align-items-center">
+                             <div class="col-md-5 mb-lg-0 mb-md-0 mb-3">
+                                 <img src="$room_thumb" class="img-fluid rounded-start">
+                             </div>
+
+                             <div class="col-md-5 px-md-3 px-0">
+
+                               <div class="card-body">
+                                <h5>$room_data[name]</h5>
+                                <h6>Modelo: $room_data[marca]</h6>
                                 <div class="features mb-3">
+                                    
                                     <h6>Caracteristicas</h6>
-                                    <span class="badge bg-light text-dark text-wrap">
-                                        placa abc-323
-                                    </span>
-                                    <span class="badge bg-light text-dark text-wrap">
-                                        Capacidad 5 personas
-                                    </span>
-                                    <span class="badge bg-light text-dark text-wrap">
-                                        color gris
-                                    </span>
+                                     $features_data
                                 </div>
                                 <div class="features mb-3">
-                                    <h6>Pasajeros</h6>
-                                    <span class="badge bg-light text-dark text-wrap">
-                                        1
-                                    </span>
-                                    <span class="badge bg-light text-dark text-wrap">
-                                        2
-                                    </span>
-                                    <span class="badge bg-light text-dark text-wrap">
-                                        3
-                                    </span>
+                                    <h6>Comodidades</h6>
+                                     $facilities_data
                                 </div>
-                            </div>
+                                <div class="pasajeros mb-3">
+                                    <h6>Personas: $room_data[pasajeros]</h6>
+                                     
+                                </div>
+                               </div>
 
-                        </div>
-                        <div class="col-md-2 text-center">
-                            <h6 class="mb-4">$15 dolares el dia</h6>
+                               </div>
+                             
+                               <div class="col-md-2 text-center">
+                            <h6 class="mb-4">Valor al dia: $$room_data[price]</h6>
                             <a href="#" class="btn btn-sm w-100 btn-outline-dark custom-bg shadow-none mb-2">Rentar</a>
-                            <a href="#" class="btn btn-sm w-100 btn-outline-dark shadow-none mb-2">Mas detalles</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card mb-4 border-0 shadow">
-                    <div class="row g-0 p-3 align-items-center">
-                        <div class="col-md-5 mb-lg-0 mb-md-0 mb-3">
-                            <img src="images/cedan.jpg" class="img-fluid rounded-start">
-                        </div>
-                        <div class="col-md-5 px-md-3 px-0">
+                            <a href="cars_details.php?id=$room_data[id]" class="btn btn-sm w-100 btn-outline-dark shadow-none mb-2">Mas detalles</a>
+                             </div>
+                          </div>
+                       </div>
+                     data;
+                }
+                ?>
 
-                            <div class="card-body">
-                                <h5>hyundai Creta</h5>
-                                <h6 class="mb-3">15$ el dia</h6>
-                                <div class="features mb-3">
-                                    <h6>Caracteristicas</h6>
-                                    <span class="badge bg-light text-dark text-wrap">
-                                        placa abc-323
-                                    </span>
-                                    <span class="badge bg-light text-dark text-wrap">
-                                        Capacidad 5 personas
-                                    </span>
-                                    <span class="badge bg-light text-dark text-wrap">
-                                        color gris
-                                    </span>
-                                </div>
-                                <div class="features mb-3">
-                                    <h6>Pasajeros</h6>
-                                    <span class="badge bg-light text-dark text-wrap">
-                                        1
-                                    </span>
-                                    <span class="badge bg-light text-dark text-wrap">
-                                        2
-                                    </span>
-                                    <span class="badge bg-light text-dark text-wrap">
-                                        3
-                                    </span>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-md-2 text-center">
-                            <h6 class="mb-4">$15 dolares el dia</h6>
-                            <a href="#" class="btn btn-sm w-100 btn-outline-dark shadow-none mb-2">Rentar</a>
-                            <a href="#" class="btn btn-sm w-100 btn-outline-dark shadow-none mb-2">Mas detalles</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card mb-4 border-0 shadow">
-                    <div class="row g-0 p-3 align-items-center">
-                        <div class="col-md-5 mb-lg-0 mb-md-0 mb-3">
-                            <img src="images/cedan.jpg" class="img-fluid rounded-start">
-                        </div>
-                        <div class="col-md-5 px-md-3 px-0">
-
-                            <div class="card-body">
-                                <h5>hyundai Creta</h5>
-                                <h6 class="mb-3">15$ el dia</h6>
-                                <div class="features mb-3">
-                                    <h6>Caracteristicas</h6>
-                                    <span class="badge bg-light text-dark text-wrap">
-                                        placa abc-323
-                                    </span>
-                                    <span class="badge bg-light text-dark text-wrap">
-                                        Capacidad 5 personas
-                                    </span>
-                                    <span class="badge bg-light text-dark text-wrap">
-                                        color gris
-                                    </span>
-                                </div>
-                                <div class="features mb-3">
-                                    <h6>Pasajeros</h6>
-                                    <span class="badge bg-light text-dark text-wrap">
-                                        1
-                                    </span>
-                                    <span class="badge bg-light text-dark text-wrap">
-                                        2
-                                    </span>
-                                    <span class="badge bg-light text-dark text-wrap">
-                                        3
-                                    </span>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-md-2 text-center">
-                            <h6 class="mb-4">$15 dolares el dia</h6>
-                            <a href="#" class="btn btn-sm w-100 btn-outline-dark custom-bg shadow-none mb-2">Rentar</a>
-                            <a href="#" class="btn btn-sm w-100 btn-outline-dark shadow-none mb-2">Mas detalles</a>
-                        </div>
-                    </div>
-                </div>
             </div>
 
         </div>

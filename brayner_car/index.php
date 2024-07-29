@@ -97,96 +97,82 @@
     <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">Nuestros Autos</h2>
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-6 my-3">
-                <div class="card border-0 shadow" style="max-width: 350px; margin: auto;">
-                    <img src="images/hyunday creta.jpg" class="card-img-top">
 
-                    <div class="card-body">
-                        <h5>hyundai Creta</h5>
-                        <h6 class="mb-4">15$ el dia</h6>
-                        <div class="features mb-4">
-                            <h6>Caracteristicas</h6>
-                            <span class="badge bg-light text-dark text-wrap">
-                                placa abc-323
-                            </span>
-                            <span class="badge bg-light text-dark text-wrap">
-                                Capacidad 5 personas
-                            </span>
-                            <span class="badge bg-light text-dark text-wrap">
-                                color gris
-                            </span>
-                        </div>
-                        <div class="d-flex justify-content-evenly mb-2">
+        <?php
+                $room_res = select("SELECT * FROM `cars` WHERE `status`= ? AND `removed`=? ORDER BY `id` DESC LIMIT 3 ", [1, 0], 'ii');
 
-                            <a href="#" class="btn btn-sm custom-bg shadow-none mb-2">Rentar</a>
-                            <a href="#" class="btn btn-sm btn-outline-dark shadow-none">Mas detalles</a>
-                        </div>
-                    </div>
+                while ($room_data = mysqli_fetch_assoc($room_res)) {
+                    // obtener servicios del carro
+                    $fea_q = mysqli_query($con, "SELECT f.name FROM `servicios` f 
+                              INNER JOIN `car_servicios` rfea ON f.id = rfea.servicios_id
+                              WHERE rfea.car_id = '$room_data[id]'");
 
-                </div>
+                    $features_data = "";
+                    while ($fea_row = mysqli_fetch_assoc($fea_q)) {
+                        $features_data .= "<span class='badge rounded-pill bg-light text-dark text-wrap'>
+                                                  $fea_row[name]
+                                               </span>";
+                    }
+                    // Obtener facilities del auto
+                    $fac_q = mysqli_query($con, "SELECT f.name FROM `facilities` f 
+                                                 INNER JOIN `cars_facilities` rfac ON f.id = rfac.facilities_id
+                                                 WHERE rfac.car_id = '$room_data[id]'");
+                    $facilities_data = "";
+                    while ($fac_row = mysqli_fetch_assoc($fac_q)) {
+                        $facilities_data .= "<span class='badge rounded-pill bg-light text-dark text-wrap'>
+                                                      $fac_row[name]
+                                                   </span>";
+                    }
 
-            </div>
-            <div class="col-lg-4 col-md-6 my-3">
-                <div class="card border-0 shadow" style="max-width: 350px; margin: auto;">
-                    <img src="images/toyota.jpg" class="card-img-top">
 
-                    <div class="card-body">
-                        <h5>hyundai Creta</h5>
-                        <h6 class="mb-4">15$ el dia</h6>
-                        <div class="features mb-4">
-                            <h6>Caracteristicas</h6>
-                            <span class="badge bg-light text-dark text-wrap">
-                                placa abc-323
-                            </span>
-                            <span class="badge bg-light text-dark text-wrap">
-                                Capacidad 5 personas
-                            </span>
-                            <span class="badge bg-light text-dark text-wrap">
-                                color gris
-                            </span>
-                        </div>
-                        <div class="d-flex justify-content-evenly mb-2">
+                    // Obtener la imagen activa
+                    $room_thumb = ROOMS_IMG_PATH . "thumbnail.jpg";
+                    $thumb_q = mysqli_query($con, "SELECT * FROM `car_image` 
+                                                   WHERE `car_id`='$room_data[id]' 
+                                                   AND `thumb`='1'");
 
-                            <a href="#" class="btn btn-sm custom-bg shadow-none mb-2">Rentar</a>
-                            <a href="#" class="btn btn-sm btn-outline-dark shadow-none">Mas detalles</a>
-                        </div>
-                    </div>
+                    if (mysqli_num_rows($thumb_q) > 0) {
+                        $thumb_res = mysqli_fetch_assoc($thumb_q);
+                        $room_thumb = ROOMS_IMG_PATH . $thumb_res['image'];
+                    }
 
-                </div>
+                    // imprimir carta auto
+                    echo <<<data
 
-            </div>
-            <div class="col-lg-4 col-md-6 my-3">
-                <div class="card border-0 shadow" style="max-width: 350px; margin: auto;">
-                    <img src="images/hyunday creta.jpg" class="card-img-top">
+                             <div class="col-lg-4 col-md-6 my-3">
+                              <div class="card border-0 shadow" style="max-width: 350px; margin: auto;">
+                                <img src="$room_thumb" class="card-img-top">
 
-                    <div class="card-body">
-                        <h5>hyundai Creta</h5>
-                        <h6 class="mb-4">15$ el dia</h6>
-                        <div class="features mb-4">
-                            <h6>Caracteristicas</h6>
-                            <span class="badge bg-light text-dark text-wrap">
-                                placa abc-323
-                            </span>
-                            <span class="badge bg-light text-dark text-wrap">
-                                Capacidad 5 personas
-                            </span>
-                            <span class="badge bg-light text-dark text-wrap">
-                                color gris
-                            </span>
-                        </div>
-                        <div class="d-flex justify-content-evenly mb-2">
+                                 <div class="card-body">
+                                 <h5>$room_data[name]</h5>
+                                 <h6>Modelo: $room_data[marca]</h6>
+                                    <h6 class="mb-4">Valor al dia: $$room_data[price]</h6>
+                                 <div class="features mb-4">
+                                      <h6 class="mb-1">Caracteristicas</h6>
+                                        $features_data
+                                      <h6 class="mb-1">Comodidades</h6>
+                                       $facilities_data
+                                       <h6 class="mb-3">Personas: $room_data[pasajeros]</h6>
+                                       <h6 class="mb-3">N. Placa: $room_data[placa]</h6>
+                                       
+                                 </div>
+                                    <div class="d-flex justify-content-evenly mb-2">
 
-                            <a href="#" class="btn btn-sm custom-bg shadow-none mb-2">Rentar</a>
-                            <a href="#" class="btn btn-sm btn-outline-dark shadow-none">Mas detalles</a>
-                        </div>
-                    </div>
+                                      <a href="#" class="btn btn-sm custom-bg shadow-none mb-2">Rentar</a>
+                                      <a href="cars_details.php?id=$room_data[id]" class="btn btn-sm btn-outline-dark shadow-none">Mas detalles</a>
+                                  </div>
+                               </div>
+                            </div>
+                         </div>
+                         
+                     data;
+                }
 
-                </div>
-
-            </div>
+                ?>
+           
         </div>
         <div class="col-lg-12 text-center mt-5">
-            <a href="#" class="btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none"> Mas Carros >>></a>
+            <a href="autos.php" class="btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none"> Mas Carros >>></a>
         </div>
     </div>
 
@@ -194,23 +180,21 @@
     <!-- Nuestros servicios -->
     <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">Nuestros Servicios</h2>
     <div class="container">
-        <div class="row justify-content-evenly">
-            <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
-                <img src="images/svg/car-front-fill.svg" width="80px">
-                <h5 mt-3>Renta de autos</h5>
-            </div>
-            <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
-                <img src="images/svg/box2.svg" width="80px">
-                <h5 mt-3>Envio de paquetes</h5>
-            </div>
-            <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
-                <img src="images/svg/radar.svg" width="80px">
-                <h5 mt-3>Control por radar</h5>
-            </div>
-            <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
-                <img src="images/svg/thermometer-snow.svg" width="80px">
-                <h5 mt-3>Climatizado</h5>
-            </div>
+        <div class="row justify-content-evenly px-lg-0 px-md-0 px-5">
+        <?php
+            $res = selectALL('facilities');
+            $path = FEATURES_IMG_PATH;
+            while ($row = mysqli_fetch_assoc($res)) {
+                echo <<<data
+                       <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
+                         <img src="$path$row[icon]" width="80px">
+                          <h5 class="mt-3">$row[name]</h5>
+                       </div>
+                data;
+            }
+
+            ?>
+            
         </div>
     </div>
 
